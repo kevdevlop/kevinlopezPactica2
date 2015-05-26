@@ -15,7 +15,7 @@ typedef struct {
 Nodo* obtenNodo(int x);
 void creaLista(Lista* l);
 int tamanioLista(Lista* l);
-bool esVacia(Lista l);
+int esVacia(Lista l);
 void insertaInicio(Lista* l, int x);
 void eliminaInicio(Lista* l);
 void inserta(Lista* l, int x, int p);
