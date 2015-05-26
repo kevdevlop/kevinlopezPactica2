@@ -58,15 +58,16 @@ void insertaInicio(Lista* l, int x){
 	
 }
 void anula(Lista* l){
-
+	l->tamaño = 0;
+	l->raiz = NULL;
+	free(*l);	
 }
 void eliminaInicio(Lista* l){
 	Nodo* primerNodo = l->raiz;
-	if (esVacia(l) == true){
-			printf("La Lista está vacia, no se puede elminar.\n");
-	}else
-		primerNodo = primerNodo->sig;
-
+	if (esVacia(*l) == false){
+		l->raiz = primerNodo->sig;
+		l->tamaño--;
+	}
 }
 Nodo* obtenNodo(int x){
 	Nodo* apNodo = (Nodo*) malloc(sizeof(Nodo));
@@ -86,9 +87,9 @@ void inserta(Lista* l, int x, int p){
 	Nodo* nuevo = obtenNodo(x);
 	Nodo* anterior = l->raiz;
 	if(p == 0){
-		insertarInicio(l,x);	
+		insertarInicio(*l,x);	
 	}else
-		for (int i=0;i<tamanioLista(l);i++)
+		for (int i=0;i<tamanioLista(*l);i++)
 			anterior = anterior->sig;
 		nuevo->sig = anterior->sig;
 		anterior->sig = nuevo;
@@ -119,7 +120,7 @@ void eliminar(Lista* l, int p){
 	Nodo* sigPos;
 	if (p != 0)
 	{
-		for (int i = 0; i < tamanioLista(l)-1; ++i)
+		for (int i = 0; i < tamanioLista(*l)-1; ++i)
 			anterior = anterior->sig;
 		sigPos = anterior -> sig -> sig;
 		free(anterior->sig);
