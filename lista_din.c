@@ -10,7 +10,7 @@ typedef struct  {
 }Nodo;
 typedef struct {
 	Nodo* raiz;
-	int tamaño;
+	int tam;
 }Lista;
 
 Nodo* obtenNodo(int x);
@@ -27,7 +27,7 @@ void eliminar(Lista* l, int p);
 void anula(Lista* l);
 
 void creaLista(Lista* l){
-	l->tamaño = 0;
+	l->tam = 0;
 	l->raiz = NULL;
 }
 int tamanioLista(Lista* l){
@@ -44,7 +44,7 @@ int tamanioLista(Lista* l){
 }
 
 int esVacia(Lista l){
-	if(l.tamaño == 0)
+	if(l.tam == 0)
 		return true;
 	return false;
 }
@@ -54,11 +54,11 @@ void insertaInicio(Lista* l, int x){
 	Nodo* nuevo = obtenNodo(x);
 	nodo->sig = nuevo->raiz;
 	l->raiz = nuevo;
-	l->tamaño++;
+	l->tam++;
 	
 }
 void anula(Lista* l){
-	l->tamaño = 0;
+	l->tam = 0;
 	l->raiz = NULL;
 	free(*l);	
 }
@@ -66,7 +66,7 @@ void eliminaInicio(Lista* l){
 	Nodo* primerNodo = l->raiz;
 	if (esVacia(*l) == false){
 		l->raiz = primerNodo->sig;
-		l->tamaño--;
+		l->tam--;
 	}
 }
 Nodo* obtenNodo(int x){
@@ -93,7 +93,7 @@ void inserta(Lista* l, int x, int p){
 			anterior = anterior->sig;
 		nuevo->sig = anterior->sig;
 		anterior->sig = nuevo;
-		l-> tamaño++;
+		l-> tam++;
 	}
 }
 int recupera(Lista* l,int p){
