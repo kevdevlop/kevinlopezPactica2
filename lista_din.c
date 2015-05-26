@@ -121,7 +121,7 @@ void eliminar(Lista* l, int p){
 	{
 		for (int i = 0; i < tamanioLista(*l)-1; ++i)
 			anterior = anterior->sig;
-		sigPos = anterior -> sig -> sig;
+		sigPos = (anterior -> sig) -> sig;
 		free(anterior->sig);
 		anterior->sig = sigPos;
 	}
