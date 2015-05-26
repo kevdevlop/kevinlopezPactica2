@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #define true 1;
 #define false 0;
 
@@ -33,7 +32,7 @@ void creaLista(Lista* l){
 int tamanioLista(Lista* l){
 	Nodo* actual = l->raiz;
 	int tam = 0;
-	if(esVacia(l) == true){
+	if(esVacia(*l) == true){
 		return 0;
 	}else 
 		while(actual != NULL){
