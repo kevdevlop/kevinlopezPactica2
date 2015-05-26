@@ -30,16 +30,7 @@ void creaLista(Lista* l){
 	l->raiz = NULL;
 }
 int tamanioLista(Lista* l){
-	Nodo* actual = l->raiz;
-	int tam = 0;
-	if(esVacia(*l) == true){
-		return 0;
-	}else 
-		while(actual != NULL){
-			actual = actual->sig;
-			tam++;
-		}
-		return tam;	
+	 return l->tam;
 }
 
 int esVacia(Lista l){
@@ -57,15 +48,20 @@ void insertaInicio(Lista* l, int x){
 	
 }
 void anula(Lista* l){
-	l->tam = 0;
-	l->raiz = NULL;
-	free(*l);	
+	Nodo* actual = l->raiz;
+	while(actual != NULL){
+		eliminaInicio(*l);
+		actual = actual -> sig;
+		l->tam--;
+	}
+
 }
 void eliminaInicio(Lista* l){
 	Nodo* primerNodo = l->raiz;
 	if (esVacia(*l) == false){
 		l->raiz = primerNodo->sig;
 		l->tam--;
+		free(primerNodo);
 	}
 }
 Nodo* obtenNodo(int x){
@@ -93,7 +89,7 @@ void inserta(Lista* l, int x, int p){
 		nuevo->sig = anterior->sig;
 		anterior->sig = nuevo;
 		l-> tam++;
-	}
+	
 }
 int recupera(Lista* l,int p){
 	Nodo* actual = l->raiz;
