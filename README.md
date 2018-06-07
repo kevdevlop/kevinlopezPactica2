@@ -5,9 +5,8 @@ Kevin Norman López López
 
 ## Instrucciones de uso
 ### Para ejecutar el programa principal "ejecutar.py" se pasa como argumento el nombre del archivo que se desea analizar, siguiendo este comando:
-``` $ python [programa_principal] [archivo_para_analizar]
-```
-``` $ python [programa_principal] [archivo_para_analizar]
+``` 
+   $ python [programa_principal] [archivo_para_analizar]
    #EJEMPLO
   $ python ejecutar.py ejemplo.tc
 ```
